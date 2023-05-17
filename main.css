@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+:root {
+    --drop-shadow: 5px 5px 10px silver;
+
+    --radius: 15px;
+}
+
+
+
+
+
 html, body{
     width: 100%;
     height: 100%;
@@ -20,14 +30,14 @@ html, body{
 h1{
     display: inline-block;
     width: 60%;
-    height: auto;
+    height: 3rem;
     margin: 0 15%;
     padding: 1.5% 5%;
 
     background-color: #003f30;
 
-    border-radius: 0 0 25px 25px;
-    filter: drop-shadow(5px 5px 10px silver);
+    border-radius: 0 0 var(--radius) var(--radius);
+    filter: drop-shadow(var(--drop-shadow));
 
     font-size: 2rem;
     font-family: Noto Sans JP, sans-serif;
@@ -52,12 +62,12 @@ h1 a{
     display: inline-block;
 
     width: 50%;
-    height: 12.5%;
+    height: 5rem;
     margin: 2.5% 20%;
     padding: 1.5% 5%;
 
-    border-radius: 15px;
-    filter: drop-shadow(5px 5px 10px silver);
+    border-radius: var(--radius);
+    filter: drop-shadow(var(--drop-shadow));
 
     background-color: #f0f0f0;
 
@@ -72,8 +82,8 @@ h1 a{
 }
 
 #current{
-    border-radius: 0 15px 15px 15px;
-    margin-top: 10%;
+    border-radius: 0 var(--radius) var(--radius) var(--radius);
+    margin-top: 8%;
 }
 
 #current::before{
@@ -82,14 +92,15 @@ h1 a{
     display: block;
     width: 20%;
     height: 3.25rem;
+    margin: 0;
 
     position: absolute;
     top: -3.25rem;
     left: 0;
 
     background-color: #003f30;
-    border-radius: 15px 15px 0 0;
-    filter: drop-shadow(5px 5px 10px silver);
+    border-radius: var(--radius) var(--radius) 0 0;
+    filter: drop-shadow(var(--drop-shadow));
 
     text-align: center;
     color: #ffffff;
@@ -113,4 +124,55 @@ h1 a{
     font-family: Montserrat, Noto Sans JP, sans-serif;
 
     color: #000;
+}
+
+footer{
+    width: 60%;
+    height: 2rem;
+
+    padding: 1.5% 5%;
+    margin: 2.5% auto 2.5% auto;
+
+    background-color: #003f30;
+    border-radius: var(--radius);
+
+    text-align: center;
+    color: #ffffff;
+    font-family: Montserrat, Noto Sans JP, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 2rem;
+}
+
+@media screen and (max-width: 480px){
+    :root {
+        --drop-shadow: 2px 2px 4px silver;
+
+        --radius: 7.5px;
+    }
+
+
+
+
+
+    html, body{
+        font-size: 10px;
+    }
+
+    h1{
+        height: 4rem;
+        margin-bottom: 3%;
+        
+        filter: drop-shadow(var(--drop-shadow));
+    }
+
+    .container{
+        filter: drop-shadow(var(--drop-shadow));
+    }
+    
+    #current::before{
+        width: 30%;
+
+        filter: drop-shadow(var(--drop-shadow));
+    }
 }
